@@ -10,9 +10,6 @@ Manual || OAuth
 req:
 {
 	name: assamimzk
-	phone: 085710289137
-	email: asaim@gamil.com
-	birth: 2001-10-18
 	password: 109283qwe
 }
 res:
