@@ -1,0 +1,115 @@
+API MEDSOS
+
+{root}/{version}/{grouping}/{endpoint}
+
+
+GROUP: AUTH
+
+[1] - Register
+Manual || OAuth
+req:
+{
+	name: assamimzk
+	phone: 085710289137
+	email: asaim@gamil.com
+	birth: 2001-10-18
+	password: 109283qwe
+}
+res:
+{
+	msg: "registrasi sukses"
+	data:{
+		name: assamimzk
+		phone: 085710289137
+		email: asaim@gamil.com
+		birth: 2001-10-18
+	}
+}
+
+[2] - Login
+req:
+{
+	name|email: assamimzk|asaim@gamil.com
+	password: 109283qwe
+}
+res:
+{
+	msg: login success
+	data:{
+		name|email: assamimzk|asaim@gamil.com
+	}
+}
+
+
+GROUP: USER
+[1] - Get All User
+#model:{
+	name: String (required)
+	phone: int 
+	email: String
+	password: String (required)
+	birth: Date
+	username: String
+	img: Image
+	website: String
+	bio: String
+	gender: String
+	following: Array o Object
+	followers: Array o Object
+	feed: FEED (GROUP)
+}
+res:
+{
+	[
+		{
+			name: assamimzk
+			phone: 085710289137
+			email: asaim@gamil.com
+			birth: 2001-10-18
+			username: ..
+			img: ..
+			feed: FEED (Model)
+			...
+		}
+		{
+			name: assamimzk
+			phone: 085710289137
+			email: asaim@gamil.com
+			birth: 2001-10-18
+			username: ..
+			img: ..
+			feed: FEED (Model)
+			...
+		}
+	]
+}
+
+[2]: Get User Like
+req:
+{
+	name:"ass"
+}
+res:
+{
+	[
+		USER,
+		USER,
+		USER,
+		USER
+	]
+}
+
+
+
+GROUP: FEED
+#model{
+	id: {uniq}
+	content: String
+	img: Image (required)
+	autor: USER (required)
+	comment: USER + String
+	like: USER + int
+}
+[1]: Get All Tweet
+[2]: Get Tweet by ID
+[3]: Get Tweet by Tags
