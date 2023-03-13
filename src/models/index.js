@@ -23,21 +23,11 @@ sequelize
     console.error("Unable to connect to the database: ", error);
   });
 
-const Book = sequelize.define("Book", {
-  title: {
-    type: DataTypes.STRING,
-    allowNull: false,
-  },
-  author: {
-    type: DataTypes.STRING,
-    allowNull: false,
-  },
-  release_date: {
-    type: DataTypes.DATEONLY,
-  },
-  subject: {
-    type: DataTypes.INTEGER,
-  },
-});
+const db = {};
 
-export default Book;
+db.Sequelize = Sequelize;
+db.sequelize = sequelize;
+
+db.tutorials = require("./Book.js")(sequelize, Sequelize);
+
+module.exports = db;

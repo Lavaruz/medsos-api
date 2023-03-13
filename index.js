@@ -3,7 +3,7 @@ import cors from "cors";
 import morgan from "morgan";
 
 // ROUTER
-import connectDb from "./src/services/db.js";
+import connectDb from "./src/models";
 // import authRouter from "./src/routes/authRoutres.js";
 const app = express();
 
